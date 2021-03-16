@@ -1,13 +1,16 @@
 <form [formGroup]="addCodesForm">
   <label for="basic-url" class="form-label"><strong class="mr-1">Añadir artículos por código</strong><i
-    #tooltip="matTooltip"
-    matTooltip="{{tooltipText}}" class="fas fa-info-circle" style="color: #007bff;"></i></label>
+      #tooltip="matTooltip" matTooltip="{{tooltipText}}" class="fas fa-info-circle" style="color: #007bff;"></i></label>
   <div class="input-group mb-3">
-    <input (keydown)="isTyping($event)" formControlName="addField" type="text" class="form-control" placeholder="Ej.: 80265472, 98564528..."
-      aria-label="Recipient's username" aria-describedby="button-addon2">
+    <input (keydown)="isTyping($event)" formControlName="addField" type="text" class="form-control"
+      placeholder="Ej.: 80265472, 98564528..." aria-label="Recipient's username" aria-describedby="button-addon2">
     <button class="btn btn-primary" type="button" id="button-addon2" (click)="addSearch()">AÑADIR</button>
   </div>
   <div *ngIf="addCodesForm.controls.addField.errors && addCodesForm.controls.addField.touched">
-    <div *ngIf="addCodesForm.controls.addField.errors?.pattern" class="text-danger">* Formato inválido.</div>
+    <div *ngIf="addCodesForm.controls.addField.errors?.pattern">
+      <p class="text-danger">* Formato inválido.</p>
+      <p>Siga el siguiente formato válido:</p>
+      <p class="text-success">12345678, 111.222.33</p>
+    </div>
   </div>
 </form>
