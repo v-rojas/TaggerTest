@@ -1,0 +1,17 @@
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col-6">
+      <h5><strong>ARTÍCULOS VÁLIDOS:</strong></h5>
+      <div *ngFor="let item of dataParse?.exist">
+        <p>{{item}}</p>
+      </div>
+    </div>
+    <div class="col-6">
+      <h5><strong>ARTÍCULOS INVÁLIDOS:</strong></h5>
+      <div *ngFor="let item of dataParse?.noExist">
+        <p>{{item}}</p>
+      </div>
+    </div>
+  </div>
+</div>
